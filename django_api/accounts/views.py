@@ -2,8 +2,9 @@ from django.contrib.auth import authenticate
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from .serializers import *
 from rest_framework_jwt.settings import api_settings
+from .serializers import *
+from .utils import *
 
 
 @api_view(["POST"])
@@ -26,6 +27,7 @@ def login(request):
             ip_addr=request.META["REMOTE_ADDR"],
         )
         login_history.save()
+        send_hook(serializer.validated_data["username"], request.META["REMOTE_ADDR"])
 
         # Check if user has valid credentials and return user instance else None
         user = authenticate(
