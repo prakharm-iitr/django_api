@@ -5,6 +5,7 @@ import csv
 
 
 def download_csv(modeladmin, request, queryset):
+    """Action to download data as csv"""
 
     response = HttpResponse(content_type="text/csv")
     response["Content-Disposition"] = "attachment; filename=export_logs.csv"

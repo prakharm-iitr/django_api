@@ -9,4 +9,3 @@ class UserLoginHistory(models.Model):
 
     user_id = models.CharField(max_length=128)
     ip_addr = models.GenericIPAddressField()
-

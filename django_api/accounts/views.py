@@ -7,8 +7,10 @@ from .serializers import *
 from .utils import *
 
 
+# Create User View
 @api_view(["POST"])
 def create_user(request):
+    # Serialize data, and only use data if verified
     serialized = UserSerializer(data=request.data)
     if serialized.is_valid():
         serialized.save()
@@ -26,7 +28,10 @@ def login(request):
             user_id=serializer.validated_data["username"],
             ip_addr=request.META["REMOTE_ADDR"],
         )
+        # Save login attempt
         login_history.save()
+
+        # Call webhook to send POST notification
         send_hook(serializer.validated_data["username"], request.META["REMOTE_ADDR"])
 
         # Check if user has valid credentials and return user instance else None
@@ -37,6 +42,7 @@ def login(request):
 
         if user is not None:
 
+            # Generate JWT token
             jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
             jwt_encode_handler = api_settings.JWT_ENCODE_HANDLER
 

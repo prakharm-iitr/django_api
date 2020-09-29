@@ -1,6 +1,7 @@
 import requests
 
 
+# Function to send webhhook
 def send_hook(username, ip_addr):
     header = {"Content-type": "application/json"}
     payload = {
