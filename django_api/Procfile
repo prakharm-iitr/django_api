@@ -1,1 +1,1 @@
-web: gunicorn django_api:server
+web: gunicorn django-api-uniacco:server
