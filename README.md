@@ -1,4 +1,3 @@
 # django_api
 
-Start the python virtual environment (if needed) by using:
-$ source venv/bin/activate
+Django API with React frontend for login management, and sending webhooks to custom URL for login tracking.
