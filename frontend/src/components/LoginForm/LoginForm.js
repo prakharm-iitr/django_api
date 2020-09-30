@@ -26,7 +26,7 @@ function LoginForm(props) {
         }
         axios.post(API_BASE_URL+'/login/', payload)
             .then(function (response) {
-                if(response.ok){
+                if(response.status === 200){
                     setState(prevState => ({
                         ...prevState,
                         successMessage : 'Login successful. Webhook sent.',
