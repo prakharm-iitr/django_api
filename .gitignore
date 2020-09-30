@@ -1,2 +1,4 @@
 .idea
 venv/
+django_api/staticfiles/
+
