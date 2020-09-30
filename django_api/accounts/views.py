@@ -52,8 +52,7 @@ def login(request):
             return Response({"token": token}, status=status.HTTP_200_OK)
         else:
             return Response(
-                {"msg": "Credentials are not valid!"},
-                status=status.HTTP_400_BAD_REQUEST,
+                status=status.HTTP_401_UNAUTHORIZED,
             )
     else:
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
