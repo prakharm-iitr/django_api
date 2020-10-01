@@ -21,5 +21,5 @@ def download_csv(modeladmin, request, queryset):
 
 @admin.register(UserLoginHistory)
 class LoginHistoryAdmin(admin.ModelAdmin):
-    list_display = ('user_id', 'ip_addr')
+    list_display = ('user_id', 'ip_addr', 'time')
     actions = [download_csv]

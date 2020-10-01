@@ -57,3 +57,5 @@ Werkzeug==1.0.1
 whitenoise==5.2.0
 wrapt==1.12.1
 django-cors-headers==3.5.0
+djangorestframework-simplejwt==4.4.0
+

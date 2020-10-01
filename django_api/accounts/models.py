@@ -9,3 +9,4 @@ class UserLoginHistory(models.Model):
 
     user_id = models.CharField(max_length=128)
     ip_addr = models.GenericIPAddressField()
+    time = models.DateTimeField(auto_now_add=True)
